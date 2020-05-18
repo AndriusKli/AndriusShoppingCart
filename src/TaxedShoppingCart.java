@@ -1,11 +1,10 @@
 import lt.infobalt.itakademija.javalang.exam.shopingcart.ShoppingCart;
 
-public class TaxDecoratedShoppingCart extends ShoppingCartImp {
-    private ShoppingCart shoppingCart;
+public class TaxedShoppingCart extends ShoppingCartImp {
     private double tax;
 
-    public TaxDecoratedShoppingCart(ShoppingCart shoppingCart, double tax) {
-        this.shoppingCart = shoppingCart;
+    public TaxedShoppingCart(ShoppingCart shoppingCart, double tax) {
+        super(shoppingCart);
         this.tax = tax;
     }
 

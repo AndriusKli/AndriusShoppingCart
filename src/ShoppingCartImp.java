@@ -1,63 +1,38 @@
 import lt.infobalt.itakademija.javalang.exam.shopingcart.ShoppingCart;
-import lt.infobalt.itakademija.javalang.exam.shopingcart.ShoppingCartModificationException;
 import lt.infobalt.itakademija.javalang.exam.shopingcart.ShoppingItem;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 public class ShoppingCartImp implements ShoppingCart {
 
-    private List<ShoppingItem> shoppingItems;
-    private boolean locked;
+    ShoppingCart shoppingCart;
 
-    public ShoppingCartImp() {
-        this.shoppingItems = new ArrayList<>();
-        this.locked = false;
+    public ShoppingCartImp(ShoppingCart shoppingCart) {
+        this.shoppingCart = shoppingCart;
     }
 
     @Override
     public void addShoppingItem(ShoppingItem shoppingItem) {
-        if (isLocked()) {
-            throw new ShoppingCartModificationException();
-        } else {
-            shoppingItems.add(shoppingItem);
-        }
+        shoppingCart.addShoppingItem(shoppingItem);
     }
 
     @Override
     public void removeShoppingItem(ShoppingItem shoppingItem) {
-        if (isLocked()) {
-            throw new ShoppingCartModificationException();
-        } else {
-            shoppingItems.remove(shoppingItem);
-        }
+        shoppingCart.removeShoppingItem(shoppingItem);
     }
 
     @Override
     public void clearShoppingCart() {
-        if (isLocked()) {
-            throw new ShoppingCartModificationException();
-        } else {
-            shoppingItems.clear();
-        }
+        shoppingCart.clearShoppingCart();
     }
 
     @Override
     public Collection<ShoppingItem> getShoppingCartItems() {
-        return shoppingItems;
+        return shoppingCart.getShoppingCartItems();
     }
 
     @Override
     public double calculateTotalPrice() {
-        return shoppingItems.stream().mapToDouble(ShoppingItem::getPrice).sum();
-    }
-
-    public void setLocked(boolean locked) {
-        this.locked = locked;
-    }
-
-    public boolean isLocked() {
-        return locked;
+        return shoppingCart.calculateTotalPrice();
     }
 }

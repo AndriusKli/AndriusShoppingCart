@@ -6,27 +6,22 @@ public class Tests extends BaseShoppingCartDecoratorTest {
 
     @Override
     protected ShoppingCart getDecoratedShoppingCart(ShoppingCart shoppingCart, double v, double v1) {
-        return new DiscountDecoratedShoppingCart(new TaxDecoratedShoppingCart(shoppingCart, v1), v);
-//        return new DiscountDecoration(new TaxDecoration(shoppingCart, v1), v);
+        return new DiscountedShoppingCart(new TaxedShoppingCart(shoppingCart, v1), v);
     }
 
     @Override
     protected ShoppingCart getDiscountAppliedShoppingCart(ShoppingCart shoppingCart, double v) {
-        return new DiscountDecoratedShoppingCart(shoppingCart, v);
-//        return new DiscountDecoration(shoppingCart, v);
+        return new DiscountedShoppingCart(shoppingCart, v);
     }
 
     @Override
     protected ShoppingCart getTaxAppliedShoppingCart(ShoppingCart shoppingCart, double v) {
-        return new TaxDecoratedShoppingCart(shoppingCart, v);
-//        return new TaxDecoration(shoppingCart, v);
+        return new TaxedShoppingCart(shoppingCart, v);
     }
 
     @Override
     protected ShoppingCart getLockedFromModificationShoppingCart(ShoppingCart shoppingCart) {
-        ShoppingCartImp lockedCart = new ShoppingCartImp();
-        lockedCart.setLocked(true);
-        return lockedCart;
+        return new LockedShoppingCart(shoppingCart);
     }
 
 }
