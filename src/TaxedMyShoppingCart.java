@@ -1,9 +1,9 @@
 import lt.infobalt.itakademija.javalang.exam.shopingcart.ShoppingCart;
 
-public class TaxedShoppingCart extends ShoppingCartImp {
+public class TaxedMyShoppingCart extends MyShoppingCart {
     private double tax;
 
-    public TaxedShoppingCart(ShoppingCart shoppingCart, double tax) {
+    public TaxedMyShoppingCart(ShoppingCart shoppingCart, double tax) {
         super(shoppingCart);
         this.tax = tax;
     }

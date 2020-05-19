@@ -3,11 +3,11 @@ import lt.infobalt.itakademija.javalang.exam.shopingcart.ShoppingItem;
 
 import java.util.Collection;
 
-public class ShoppingCartImp implements ShoppingCart {
+public class MyShoppingCart implements ShoppingCart {
 
     ShoppingCart shoppingCart;
 
-    public ShoppingCartImp(ShoppingCart shoppingCart) {
+    public MyShoppingCart(ShoppingCart shoppingCart) {
         this.shoppingCart = shoppingCart;
     }
 

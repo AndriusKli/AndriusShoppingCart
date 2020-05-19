@@ -1,9 +1,9 @@
 import lt.infobalt.itakademija.javalang.exam.shopingcart.ShoppingCart;
 
-public class DiscountedShoppingCart extends ShoppingCartImp {
+public class DiscountedMyShoppingCart extends MyShoppingCart {
     private double discount;
 
-    public DiscountedShoppingCart(ShoppingCart shoppingCart, double discount) {
+    public DiscountedMyShoppingCart(ShoppingCart shoppingCart, double discount) {
         super(shoppingCart);
         this.discount = discount;
     }
